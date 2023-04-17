@@ -1,0 +1,88 @@
+.container {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #FFFFFF;
+    box-shadow: 4px 12px 40px rgba(8, 27, 62, 0.09);
+    border-radius: 24px;
+    width: 328px;
+    padding: 0px 30px 0px 30px;
+    margin: 70px 20px 20px 20px;
+}
+
+
+.productTitle {
+    color: #454557;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.productSubTitle {
+    margin-top: 1px;
+    text-align: center;
+    word-break: keep-all;
+    width: 300px;
+    height: 20px;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #454557;
+    text-align: center;
+}
+
+.monthlyAmount {
+    color: #FF5958;
+    width: 300px;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    margin-top: 23px;
+    word-break: keep-all;
+    text-align: center;
+    margin-top: 23px;
+}
+
+.billingInfo {
+    color: #7E7E9C;
+    width: 223px;
+    height: 17px;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 17px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.solid {
+    margin-top: 40px;
+    margin-bottom: 32px;
+    border-top: 1px solid #DDDDDD;
+    width: 300px;
+}
+
+.productDescriptionsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.smallPrint {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: #7E7E9C;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}

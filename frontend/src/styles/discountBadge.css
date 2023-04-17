@@ -1,0 +1,45 @@
+.discountBadgeContainer {
+    position: relative;
+    top: -59px;
+    margin-bottom: -60px;
+}
+
+.discountContainer {
+    background-color: #F72928;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    top: -20px;
+    left: -75px;
+    position: absolute;
+}
+
+.discountValue {
+    font-family: 'Red Hat Display';
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center; 
+}
+
+.discountText {
+    font-family: 'Red Hat Display';
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.icon1 {
+    width: 115px;
+    height: 180px;
+}
+
+.icon2 {
+    width: 188px;
+    height: 182px;
+}

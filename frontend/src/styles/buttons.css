@@ -1,0 +1,25 @@
+.plainButton {
+    border: 1px solid #454557;
+    border-radius: 8px;
+    padding: 14px 88px;
+    background-color: white;
+    color: #454557;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.yellowButton {
+    background: linear-gradient(182.22deg, #FFD800 -0.05%, #FFA700 98%);
+    border: 1px solid #EDB100;
+    box-shadow: 0px 8px 20px rgba(252, 108, 88, 0.3);
+    border-radius: 8px;
+    padding: 14px 88px;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    }
