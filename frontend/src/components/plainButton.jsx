@@ -3,7 +3,7 @@ import { sendEventToServer } from '../analytics';
 
 export const PlainButton = ({ bundleName }) => {
     const handleClick = async () => {
-        sendEventToServer({ eventName: bundleName +"BundleButtonClick" })
+        sendEventToServer({ eventName: "clicked on buy for " + bundleName + " card"})
     }
     
     return <button className='plainButton' onClick={handleClick}>

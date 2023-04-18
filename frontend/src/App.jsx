@@ -8,13 +8,13 @@ import { sendEventToServer } from './analytics';
 
 
 function App() {
-  window.onbeforeunload = () => {
-    console.log()
-  
-  }
+  const [enteredPage, setEnteredPage] = useState(false)
 
   useEffect(() => {
-    sendEventToServer({ eventName:"entered page" })
+    if (!enteredPage) {
+      sendEventToServer({ eventName:"entered page" })
+      setEnteredPage(true)
+    }
   }, [])
 
 

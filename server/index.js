@@ -1,7 +1,8 @@
 const express = require( "express");
 const cors = require('cors');
 const getData = require("./bundleData/getData")
-const dbConnect = require("./dbConnect.jsx")
+const dbConnect = require("./dbConnect.jsx");
+const { Result } = require("antd");
 
 const app = express();
 app.use(cors());
@@ -11,12 +12,13 @@ app.use(express.json());
 const validateBundleRequest = (req, res, next) => {
     const validBundleNames = getData.getBundleNames()
     console.log("req.query", req.query)
-    if (!validBundleNames.includes(req.query.bundle)) {
+    const {bundle, currency} = req.query
+    if (!validBundleNames.includes(bundle) && bundle !== "*") {
         throw new Error('Invalid bundle name')
     }
     const supportedCurrencies = getData.getSupportedCurrencies()
 
-    if (!supportedCurrencies.includes((req.query.currency).toUpperCase())) {
+    if (!supportedCurrencies.includes((currency).toUpperCase())) {
         throw new Error('Invalid currency')
     }
     next();
@@ -44,15 +46,24 @@ const validateBundleRequest = (req, res, next) => {
     if (typeof ipAddress !== "string") {
       throw new Error('IP Address must be a string')
     }
-    console.log(event)
     if (ipAddress.split(".").length !== 4) {
       throw new Error('Invalid Ip Address')
     }
-
     if (typeof event !== "string") {
       throw new Error('event must be a string')
     }
+    if (additionalInfo && typeof additionalInfo !== "string") {
+      throw new Error('additionalInfo must be a string')
+    }
     next();
+  }
+
+  const getBundleInfo = (bundleName) => {
+    const {origPriceUSD, newPriceUSD} = getData.getBundlePrice(bundleName)
+    const discountValue = getData.getDiscountValue({origPrice: origPriceUSD, newPrice: newPriceUSD})
+    const monthlyCost = (newPriceUSD/12).toFixed(2);
+    return {origPrice: origPriceUSD, newPrice: newPriceUSD, monthlyCost, discountValue}
+
   }
 
   app.get('/', (req, res) => {
@@ -61,10 +72,16 @@ const validateBundleRequest = (req, res, next) => {
 
   app.get('/getPriceByBundle', validateBundleRequest, (req, res) => {
     const bundleName = req.query.bundle;
-    const {origPriceUSD, newPriceUSD} = getData.getBundlePrice(bundleName)
-    const discountValue = getData.getDiscountValue({origPrice: origPriceUSD, newPrice: newPriceUSD})
-    const monthlyCost = (newPriceUSD/12).toFixed(2);
-    res.send({origPrice: origPriceUSD, newPrice: newPriceUSD, monthlyCost, discountValue});
+    if (bundleName === "*") {
+      const bundleNames = getData.getBundleNames()
+      const result = bundleNames.reduce((res, bundleName) => {
+        res[bundleName] = getBundleInfo(bundleName)
+        return res
+      }, {})
+      res.send(result);
+    }
+
+    res.send(getBundleInfo(bundleName))
   });
 
   app.get('/getPriceByMultipleBundles', validateMultipleBundleRequest, (req, res) => {
