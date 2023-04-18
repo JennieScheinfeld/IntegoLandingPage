@@ -1,6 +1,7 @@
 const express = require( "express");
 const cors = require('cors');
 const getData = require("./bundleData/getData")
+const dbConnect = require("./dbConnect.jsx")
 
 const app = express();
 app.use(cors());
@@ -35,7 +36,22 @@ const validateBundleRequest = (req, res, next) => {
     if (!supportedCurrencies.includes((req.query.currency).toUpperCase())) {
         throw new Error('Invalid currency')
     }
-    console.log("made it!")
+    next();
+  }
+
+  const validateEvent = (req, res, next) => {
+    const {ipAddress, event, additionalInfo} = req.query;
+    if (typeof ipAddress !== "string") {
+      throw new Error('IP Address must be a string')
+    }
+    console.log(event)
+    if (ipAddress.split(".").length !== 4) {
+      throw new Error('Invalid Ip Address')
+    }
+
+    if (typeof event !== "string") {
+      throw new Error('event must be a string')
+    }
     next();
   }
 
@@ -46,7 +62,6 @@ const validateBundleRequest = (req, res, next) => {
   app.get('/getPriceByBundle', validateBundleRequest, (req, res) => {
     const bundleName = req.query.bundle;
     const {origPriceUSD, newPriceUSD} = getData.getBundlePrice(bundleName)
-    // convert with php class
     const discountValue = getData.getDiscountValue({origPrice: origPriceUSD, newPrice: newPriceUSD})
     const monthlyCost = (newPriceUSD/12).toFixed(2);
     res.send({origPrice: origPriceUSD, newPrice: newPriceUSD, monthlyCost, discountValue});
@@ -66,6 +81,16 @@ const validateBundleRequest = (req, res, next) => {
     const discountValue = getData.getDiscountValue({origPrice: origPriceUSD, newPrice: newPriceUSD})
     const monthlyCost = (newPriceUSD/12).toFixed(2);
     res.send({origPrice: origPriceUSD, newPrice: newPriceUSD, monthlyCost, discountValue});
+  });
+
+  app.post('/logEvents', validateEvent, (req, res) => {
+    const eventName = req.query.event;
+    const additionalInfo = req.query.additionalInfo;
+    const ipAddress = req.query.ipAddress;
+    console.log({event: eventName, ipAddress, additionalInfo})
+    dbConnect.insertRow({ tableName: "user_actions", data: {event: eventName, ipAddress, additionalInfo}})
+
+    res.json({ message: 'Data received' });
   });
   
   // Start server

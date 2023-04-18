@@ -8,12 +8,15 @@ import { ProductBullet } from "./productBullet";
 import { DiscountBadge} from "./discountBadge"
 
 import integtoAntiVurusImg from '../images/stackedImg.svg'
+import { PlainButton } from "./plainButton";
 
 export const ExtendedProtectionCard = ({bundleList, currency="usd"}) => {
     const [productDetails, setProductDetails] = useState({})
+    const bundleName = "extended"
 
     useEffect(() => {
-        fetch(`http://localhost:3000/getPriceByMultipleBundles/?bundleList=${bundleList}&currency=${currency}`)        .then((res) =>  res.json())
+        fetch(`http://localhost:3000/getPriceByMultipleBundles/?bundleList=${bundleList}&currency=${currency}`)
+        .then((res) =>  res.json())
         .then(res => {
             setProductDetails(res)
         })
@@ -32,7 +35,7 @@ export const ExtendedProtectionCard = ({bundleList, currency="usd"}) => {
             <span style={{ textDecoration: "line-through", color: "#7E7E9C"}}>${productDetails.origPrice} </span>
             <span>for the first 2 years</span>
         </div>
-        <YellowButton/>
+        <YellowButton bundleName={bundleName} />
         <MoneyBack/>
         <div className="solid"/>
         <div className="productDescriptionsContainer">

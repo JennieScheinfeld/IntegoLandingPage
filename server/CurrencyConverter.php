@@ -5,7 +5,7 @@ class PriceConverter {
   private $currency_array = [
     "USD" => [
         "symbol" => "$",
-        "position" => "right"
+        "position" => "left"
     ], 
     "JPY"=> [
         "symbol" => "¥",
@@ -92,14 +92,18 @@ class PriceConverter {
   private function convertToCurrency() {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://api.apilayer.com/currency_data/convert?from=USD&to=$this->currency&amount=$this->amount");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
-     "apikey: Yg6XLzAtw6vpKUovhjLckV7Cmn2C9w7A"]);
+     "apikey: 9fKFnx6HumhHeMPYY7FK53jZukREYmSB"]);
     $response = curl_exec($ch);
-    $response = json_decode($response, true);
+    if(curl_errno($ch)) {
+        echo 'Curl error: '.curl_error($ch);
+    }
+    $jsonResponse = json_decode($response, true);
     
-    echo $response;
-    $result = $response['result'];
+    $result = $jsonResponse['result'];
     $value = $this->formatNumber($result);
     return $value;
 
@@ -128,8 +132,8 @@ class PriceConverter {
 
   public function __toString() {
     $value = $this->convertToCurrency();
-    $symbol = ($this->currency_array)[$this->currency]["symbol"];
-    $position = ($this->currency_array)[$this->currency]["position"];
+    $symbol = $this->currency_array[$this->currency]["symbol"];
+    $position = $this->currency_array[$this->currency]["position"];
     if ($position === "right") {
        $stringValue = $value.$symbol;
     } else {
@@ -139,5 +143,5 @@ class PriceConverter {
   }
 }
 
-$priceConverter = new PriceConverter(29, "JPY");
+$priceConverter = new PriceConverter(29, "USD");
 echo $priceConverter;

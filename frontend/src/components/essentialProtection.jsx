@@ -9,9 +9,10 @@ import integtoAntiVurusImg from '../images/productImg.svg'
 
 export const EssentialProtectionCard = ({currency="usd"}) => {
     const [productDetails, setProductDetails] = useState({})
+    const bundleName = "essential"
 
     useEffect(() => {
-        fetch(`http://localhost:3000/getPriceByBundle/?bundle=essential&currency=${currency}`)
+        fetch(`http://localhost:3000/getPriceByBundle/?bundle=${bundleName}&currency=${currency}`)
         .then((res) =>  res.json())
         .then(res => {
             setProductDetails(res)
@@ -30,7 +31,7 @@ export const EssentialProtectionCard = ({currency="usd"}) => {
             <span style={{ textDecoration: "line-through", color: "#7E7E9C"}}>${productDetails.origPrice} </span>
             <span>for the first 1 year</span>
         </div>
-        <PlainButton/>
+        <PlainButton bundleName={bundleName}/>
         <MoneyBack/>
         <div className="solid"/>
         <div className="productDescriptionsContainer">
