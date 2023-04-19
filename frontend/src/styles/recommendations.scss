@@ -5,22 +5,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
+    column-gap: 100px;
     justify-content: center;
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
-    padding: 40px;
     align-items: center;
+    justify-content: center;
+    margin: 20px;
 }
 
 
 .rec {
-    margin-bottom: 36px;
-    width: 484px;
-    height: 110px;
-
+    margin-left: 36px;
+    margin-bottom: 20px;
+    align-self: center;
 }
 
 .title {
@@ -34,7 +35,5 @@
 }
 
 .smilingGuyPic {
-    width: 550px;
-    height: 578px;
-    /* margin-left: 0 70px 0 70px; */
+    align-self: center;
 }

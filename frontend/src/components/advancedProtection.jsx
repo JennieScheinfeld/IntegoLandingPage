@@ -36,9 +36,9 @@ export const AdvancedProtectionCard = ({currency="usd"}) => {
         <div className="solid"/>
         <div className="productDescriptionsContainer">
             <ProductBullet title="Essential  Protection Plan" backgroundColor="rgba(255, 192, 1, 0.1)"/>
-            <ProductBullet title="Easy to use, easy on your PC:" content="Intuitive and simple UI with light, customizable scans" />
-            <ProductBullet title="100% malware immunity:" content="Independant lab tests show that Intego eradicates 100% of malwares" />
-            <ProductBullet title="Ransomware protection:" content="Protects your personal data from being hacked and sncrypted from ransom" />
+            <ProductBullet title="Secure Wi-Fi protection:" content=" Secure your connection when connected to public Wi-Fi or low security networks" />
+            <ProductBullet title="Protect your Privacy:" content="Keep yourpersonal data safe & private" />
+            <ProductBullet title="Browse without boundaries:" content="Intego VPN opens up the web for streaming & browsing" />
         </div>
         <div className="smallPrint">Discount applicable for the first payment only</div>
     </div>

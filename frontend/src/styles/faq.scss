@@ -22,7 +22,6 @@
 .faqTitle{
     @extend .titles;
     font-size: 50px;
-    // margin-bottom: 12px;
     text-align: center;
     line-height: 68px;
 }
@@ -30,7 +29,7 @@
 .faqParagraph {
     max-width: 280px;
     @extend .titles;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
     text-align: center;
     color: #4F4F64;
@@ -47,7 +46,6 @@
 
 
 .faqButton {
-    // background: #4F4F64;
     border: 1px solid #8797A7;
     border-radius: 55px;
     font-family: 'Red Hat Display';
@@ -60,9 +58,3 @@
     padding: 20px;
     text-align: center;
 }
-
-// @media (max-width: 1000px) {
-//     div {
-//         background: yellow;
-//     }
-// }

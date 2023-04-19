@@ -15,6 +15,5 @@ export const Recommendations = () => {
             <img className= "rec" src={review3} />
         </div>
         <img className='smilingGuyPic' src={smilingGuy} />
-
     </div>
 }
