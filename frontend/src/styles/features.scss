@@ -1,0 +1,45 @@
+@import './base';
+
+.featureContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #E8EFFCA6;
+    border-radius: 24px;
+    margin: 100px 16px 90px 16px;
+    column-gap: 100px;
+    padding: 40px;
+}
+
+.top {
+    display: flex;
+    flex-direction:row-reverse;
+    column-gap: 147px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bottom{
+    display: flex;
+    flex-direction:row;
+    column-gap: 147px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.featureTitle{
+    @extend .titles;
+    font-size: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.paragraph {
+    max-width: 440px;
+    @extend .titles;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #4F4F64;
+}

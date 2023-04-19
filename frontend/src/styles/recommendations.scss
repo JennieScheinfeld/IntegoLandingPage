@@ -1,0 +1,40 @@
+@import './base';
+
+.recContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    align-items: center;
+}
+
+
+.rec {
+    margin-bottom: 36px;
+    width: 484px;
+    height: 110px;
+
+}
+
+.title {
+    @extend .titles;
+    font-size: 40px;
+    line-height: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 60px;
+
+}
+
+.smilingGuyPic {
+    width: 550px;
+    height: 578px;
+    /* margin-left: 0 70px 0 70px; */
+}

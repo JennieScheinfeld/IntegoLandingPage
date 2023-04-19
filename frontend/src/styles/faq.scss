@@ -1,0 +1,68 @@
+@import './base';
+
+.faqContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 100px 16px 100px 16px;
+    padding: 40px;
+    flex-wrap: wrap;
+    column-gap: 200px;
+    justify-content: center;
+}
+
+.faqWrapper {
+    display: flex;
+    flex-direction:column;
+    column-gap: 147px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.faqTitle{
+    @extend .titles;
+    font-size: 50px;
+    // margin-bottom: 12px;
+    text-align: center;
+    line-height: 68px;
+}
+
+.faqParagraph {
+    max-width: 280px;
+    @extend .titles;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: #4F4F64;
+    margin-bottom: 62px;
+}
+
+
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.faqButton {
+    // background: #4F4F64;
+    border: 1px solid #8797A7;
+    border-radius: 55px;
+    font-family: 'Red Hat Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+// @media (max-width: 1000px) {
+//     div {
+//         background: yellow;
+//     }
+// }

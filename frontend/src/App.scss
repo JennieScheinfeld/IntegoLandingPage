@@ -1,21 +1,26 @@
+
 .App {
   display: flex;
-  position: relative;
-  flex-direction: column-reverse;
+  // position: relative;
+  flex-direction: column;
   justify-content: center;
+  align-content: center;
   align-items: center;
   width: 100%;
 }
 
-.productCardsContainer {
-  position: absolute;
-  top: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-self: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+.AVReport {
+  width: 1200px;
+  height: 500px;
+  margin-bottom: 80px;
 }
 
+.happyGirls {
+  width: 900px;
+  height: 600px;
+  margin-bottom: 80px;
+}
+
+.titles {
+
+}

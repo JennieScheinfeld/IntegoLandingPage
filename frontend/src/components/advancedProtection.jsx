@@ -35,7 +35,7 @@ export const AdvancedProtectionCard = ({currency="usd"}) => {
         <MoneyBack/>
         <div className="solid"/>
         <div className="productDescriptionsContainer">
-            <ProductBullet title="Powerful malware engine:" content="Adaptive, real-time malware engine monitors and eliminates threats before they reach your PC"/>
+            <ProductBullet title="Essential  Protection Plan" backgroundColor="rgba(255, 192, 1, 0.1)"/>
             <ProductBullet title="Easy to use, easy on your PC:" content="Intuitive and simple UI with light, customizable scans" />
             <ProductBullet title="100% malware immunity:" content="Independant lab tests show that Intego eradicates 100% of malwares" />
             <ProductBullet title="Ransomware protection:" content="Protects your personal data from being hacked and sncrypted from ransom" />
