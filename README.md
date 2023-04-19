@@ -12,10 +12,12 @@ In addition a currency convertor class in PHP.
 - cd ./frontend/
 - run: `npm run start`
 
-## PHP price converter:
-You can find this file - `server/CurrencyConverter.php`
-
 ## Database file:
 - MySql was used
 - You can find the exported DB file in the main folder
+
+
+## PHP price converter:
+You can find this file - `server/CurrencyConverter.php`
+
 
